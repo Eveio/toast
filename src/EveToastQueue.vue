@@ -71,6 +71,7 @@ export default Vue.extend({
   padding: 32px;
   width: 100%;
   top: 0;
+  left: 0;
   z-index: 9999;
   pointer-events: none;
 
