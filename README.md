@@ -1,24 +1,45 @@
-# toast
+# eve toast
+eve's toast service for pop-up notifications, built on Vue. 
+We support:
+- [x] custom title / description of the toasts (of course 😆)
+- [x] three different styles of toasts  ✅ ⚠️ ⭕
+- [x] displaying the queue of toasts on the top-right / top-center of the interface
+- [x] toasts that can be both manually closed, and self-closed after some duration
+- [x] callback when a toast closes
 
-## Project setup
-```
-yarn install
-```
+![example](example.png)
 
-### Compiles and hot-reloads for development
+### Install
 ```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
+yarn add eve-toast
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Usage
+The package comes with 3 exports that can be accessed with
+    ```
+    import { EveToastQueue, queueToast, EveToast } from 'eve-toast'
+    ```
+* `EveToastQueue`: the Vue component that renders a queue of toasts, can be registered and used like other custom components.
+* `queueToast (toastOptions: EveToast): void`: the util to queue a toast.
+* `EveToast`: as this project is built on TypeScript, we ship with an interface that makes type easier:
+    ```
+    interface EveToast {
+      id?: string
+      title?: string
+      description?: string
+      type: 'error' | 'warning' | 'success' // different styles of the toast
+      position?: 'right' | 'center' // position of the toast relative to the parent of `EveToastQueue`
+      duration?: number // life of a self-closing toast, in ms 
+      onClose?: () => void // callback when the toast is manually closed
+      onComplete?: () => void // callback when the toast is closed (manually or self-closed)
+    }
+    ```
+
+### Future support candidates:
+- [ ] configurable styles / types of the toasts
+- [ ] more positions of the queue (top-left, bottom-right, etc.)
+- [ ] callbacks when a toast opens
+- [ ] ...and more! Suggestion welcomed 😃
+
+#### todos
+- [ ] setup demo page
