@@ -60,5 +60,6 @@
   },
   "lint-staged": {
     "src/**/*.{js?(x),ts?(x),vue}": "eslint --fix"
-  }
+  },
+  "license": "MIT"
 }
