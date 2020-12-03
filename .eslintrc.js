@@ -5,17 +5,19 @@ module.exports = {
     node: true
   },
 
-  'extends': [
+  extends: [
     'plugin:vue/essential',
-    'eslint:recommended',
-    '@vue/typescript'
+    '@vue/standard',
+    '@vue/typescript/recommended'
   ],
 
   parserOptions: {
-    parser: '@typescript-eslint/parser'
+    ecmaVersion: 2020
   },
 
   rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/member-delimiter-style': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
   },
@@ -23,6 +25,7 @@ module.exports = {
   overrides: [
     {
       files: [
+        '**/**/*.spec.{j,t}s?(x)',
         '**/__tests__/*.{j,t}s?(x)',
         '**/tests/unit/**/*.spec.{j,t}s?(x)'
       ],
