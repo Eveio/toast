@@ -19,7 +19,7 @@
     "types"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve src/playground/index.ts",
     "build": "vue-cli-service build --target lib --name eve-toast src/main.ts --mode production && rm ./lib/demo.html",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"

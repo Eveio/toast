@@ -14,6 +14,13 @@ We support:
 yarn add eve-toast
 ```
 
+### Development
+```
+yarn serve
+```
+The playground is featured with two sections, one to queue new toasts with custom options, one is a log panel to show opened / closed toasts:
+![dev playground](dev.png)
+
 ### Usage
 The package comes with 3 exports that can be accessed with
     ```
@@ -43,4 +50,4 @@ The package comes with 3 exports that can be accessed with
 - [ ] ...and more! Suggestion welcomed 😃
 
 #### todos
-- [ ] setup demo page
+- [x] setup dev page
