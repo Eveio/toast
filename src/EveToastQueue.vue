@@ -43,14 +43,17 @@ export default Vue.extend({
   }),
 
   methods: {
-    queueToast (options: EveToast) {
-      return toastQueue.queueToast(options)
+    queueToast (options: EveToast): void {
+      const toastQueued = toastQueue.queueToast(options)
+      if (toastQueued.onOpen) {
+        toastQueued.onOpen(toastQueued)
+      }
     },
 
-    closeToast (toast: EveToast) {
+    closeToast (toast: EveToast): void {
       toastQueue.removeToast(toast)
-      if (toast?.onClose) {
-        toast.onClose()
+      if (toast.onClose) {
+        toast.onClose(toast)
       }
     }
   },

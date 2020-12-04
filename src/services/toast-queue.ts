@@ -7,7 +7,7 @@ class ToastQueue {
     this.queue = []
   }
 
-  queueToast (options: EveToast): void {
+  queueToast (options: EveToast): EveToast {
     const toast = {
       id: String(Date.now()),
       ...options
@@ -17,24 +17,21 @@ class ToastQueue {
     if (toast.duration) {
       this.removeToastAfterDuration(toast)
     }
+
+    return toast
   }
 
-  removeToast (toast: EveToast): void {
+  removeToast (toast: EveToast): EveToast | null {
     const index = this.queue.findIndex(({ id }) => toast.id === id)
 
-    if (index > -1) {
-      this.queue.splice(index, 1)
-    }
+    return index > -1 ? this.queue.splice(index, 1)[0] : null
   }
 
   removeToastAfterDuration (toast: EveToast): void {
     setTimeout(() => {
-      this.removeToast(toast)
-
-      if (toast?.onComplete) {
-        toast.onComplete()
-      } else if (toast?.onClose) {
-        toast.onClose()
+      const toastRemoved = this.removeToast(toast)
+      if (toastRemoved?.onClose) {
+        toastRemoved.onClose(toast)
       }
     }, toast.duration)
   }

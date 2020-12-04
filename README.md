@@ -5,7 +5,7 @@ We support:
 - [x] three different styles of toasts  ✅ ⚠️ ⭕
 - [x] displaying the queue of toasts on the top-right / top-center of the interface
 - [x] toasts that can be both manually closed, and self-closed after some duration
-- [x] callback when a toast closes
+- [x] callback when a toast opens / closes
 
 ![example](example.png)
 
@@ -30,15 +30,16 @@ The package comes with 3 exports that can be accessed with
       type: 'error' | 'warning' | 'success' // different styles of the toast
       position?: 'right' | 'center' // position of the toast relative to the parent of `EveToastQueue`
       duration?: number // life of a self-closing toast, in ms 
-      onClose?: () => void // callback when the toast is manually closed
-      onComplete?: () => void // callback when the toast is closed (manually or self-closed)
+      onClose?: () => void // callback when the toast closes (manually or self-closed)
+      onOpen?: () => void // callback when the toast opens
     }
     ```
 
 ### Future support candidates:
 - [ ] configurable styles / types of the toasts
 - [ ] more positions of the queue (top-left, bottom-right, etc.)
-- [ ] callbacks when a toast opens
+- [x] callbacks when a toast opens
+- [ ] dark mode
 - [ ] ...and more! Suggestion welcomed 😃
 
 #### todos

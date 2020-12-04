@@ -5,8 +5,8 @@ export interface EveToast {
   type: 'error' | 'warning' | 'success'
   position?: 'right' | 'center'
   duration?: number
-  onClose?: () => void
-  onComplete?: () => void
+  onOpen?: (toast: EveToast) => void
+  onClose?: (toast: EveToast) => void
 }
 
 export type EventName = 'TOAST:QUEUE'

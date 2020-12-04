@@ -10,8 +10,8 @@ declare module 'eve-toast' {
     type: 'error' | 'warning' | 'success'
     position?: 'right' | 'center'
     duration?: number
-    onClose?: () => void
-    onComplete?: () => void
+    onOpen?: (toast: EveToast) => void
+    onClose?: (toast: EveToast) => void
   }
 
   function queueToast (toast: EveToast): void
