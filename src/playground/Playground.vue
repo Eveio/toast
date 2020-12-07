@@ -24,10 +24,18 @@
         </fieldset>
         <fieldset>
           <legend>position</legend>
-          <input type="radio" id="position-center" value="center" v-model="form.position">
-          <label for="position-center">center</label>
-          <input type="radio" id="position-right" value="right" v-model="form.position">
-          <label for="position-right">right</label>
+          <input type="radio" id="position-top-left" value="TOP_LEFT" v-model="form.position">
+          <label for="position-top-left">top left</label>
+          <input type="radio" id="position-top-center" value="TOP_CENTER" v-model="form.position">
+          <label for="position-top-center">top center</label>
+          <input type="radio" id="position-top-right" value="TOP_RIGHT" v-model="form.position">
+          <label for="position-top-right">top right</label>
+          <input type="radio" id="position-bottom-left" value="BOTTOM_LEFT" v-model="form.position">
+          <label for="position-bottom-left">bottom left</label>
+          <input type="radio" id="position-bottom-center" value="BOTTOM_CENTER" v-model="form.position">
+          <label for="position-bottom-center">bottom center</label>
+          <input type="radio" id="position-bottom-right" value="BOTTOM_RIGHT" v-model="form.position">
+          <label for="position-bottom-right">bottom right</label>
         </fieldset>
         <label>
           duration
@@ -50,7 +58,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { EveToastQueue, queueToast, EveToast } from '@/main'
+import { EveToastQueue, queueToast, EveToast, EveToastPosition } from '@/main'
 
 export default Vue.extend({
   name: 'Playground',
@@ -64,7 +72,7 @@ export default Vue.extend({
       title: 'Toast?',
       description: 'Yeah!',
       type: 'success' as EveToast['type'],
-      position: 'right' as EveToast['position'],
+      position: EveToastPosition.TopRight,
       duration: '3000'
     },
     logs: [] as string[]
